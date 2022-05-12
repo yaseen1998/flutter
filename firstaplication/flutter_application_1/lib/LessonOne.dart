@@ -10,6 +10,7 @@ class LessonOne extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
               backgroundColor: Colors.teal,
+              elevation: 0,
               leading: const Icon(Icons.home, color: Colors.red),
               title: const Text('hi'),
               actions: const [
@@ -61,16 +62,25 @@ class LessonOne extends StatelessWidget {
                 children: [
                   FlatButton(onPressed: () {}, child: const Text('A')),
                   OutlineButton(onPressed: () {}, child: const Text('B')),
-                  RaisedButton(onPressed: (){}, child: const Text('C')),
+                  RaisedButton(onPressed: () {}, child: const Text('C')),
                   IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
                   TextButton(onPressed: () {}, child: const Text('Text')),
                   OutlinedButton(onPressed: () {}, child: const Text('out')),
                   ElevatedButton(
                       onPressed: () {}, child: const Text('elevated')),
                   TextButton.icon(
-                    autofocus: true,
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.red),
+                              foregroundColor: MaterialStateProperty.all(Colors.black),
+                              // padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+                              padding: MaterialStateProperty.all(const EdgeInsets.fromLTRB(5, 10, 20, 10)),
+                              elevation: MaterialStateProperty.all(100.0),
+                              ),
+
+                      // autofocus: true,
                       onPressed: () {},
-                      icon: const Icon(Icons.abc),
+                      icon: const Icon(Icons.night_shelter, color: Colors.white),
                       label: const Text('Icon'))
                 ],
               )
