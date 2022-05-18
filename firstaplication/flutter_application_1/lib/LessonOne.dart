@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class LessonOne extends StatelessWidget {
   const LessonOne({Key? key}) : super(key: key);
 
+  buttonOnPressed(msg) {
+    print('Button pressed $msg');
+  }
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -63,24 +67,30 @@ class LessonOne extends StatelessWidget {
                   FlatButton(onPressed: () {}, child: const Text('A')),
                   OutlineButton(onPressed: () {}, child: const Text('B')),
                   RaisedButton(onPressed: () {}, child: const Text('C')),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                  TextButton(onPressed: () {}, child: const Text('Text')),
-                  OutlinedButton(onPressed: () {}, child: const Text('out')),
+                  IconButton(
+                      onPressed: () {
+                        print('button');
+                      },
+                      icon: const Icon(Icons.add)),
+                  TextButton(onPressed: ()=>print('Text button'), child: const Text('Text')),
+                  OutlinedButton(onPressed:()=> buttonOnPressed('hello'), child: const Text('out')),
                   ElevatedButton(
                       onPressed: () {}, child: const Text('elevated')),
                   TextButton.icon(
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red),
-                              foregroundColor: MaterialStateProperty.all(Colors.black),
-                              // padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
-                              padding: MaterialStateProperty.all(const EdgeInsets.fromLTRB(5, 10, 20, 10)),
-                              elevation: MaterialStateProperty.all(100.0),
-                              ),
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        // padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.fromLTRB(5, 10, 20, 10)),
+                        elevation: MaterialStateProperty.all(100.0),
+                      ),
 
                       // autofocus: true,
                       onPressed: () {},
-                      icon: const Icon(Icons.night_shelter, color: Colors.white),
+                      icon:
+                          const Icon(Icons.night_shelter, color: Colors.white),
                       label: const Text('Icon'))
                 ],
               )
