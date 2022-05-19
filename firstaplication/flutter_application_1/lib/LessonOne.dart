@@ -6,7 +6,7 @@ class LessonOne extends StatelessWidget {
   buttonOnPressed(msg) {
     print('Button pressed $msg');
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,8 +72,12 @@ class LessonOne extends StatelessWidget {
                         print('button');
                       },
                       icon: const Icon(Icons.add)),
-                  TextButton(onPressed: ()=>print('Text button'), child: const Text('Text')),
-                  OutlinedButton(onPressed:()=> buttonOnPressed('hello'), child: const Text('out')),
+                  TextButton(
+                      onPressed: () => print('Text button'),
+                      child: const Text('Text')),
+                  OutlinedButton(
+                      onPressed: () => buttonOnPressed('hello'),
+                      child: const Text('out')),
                   ElevatedButton(
                       onPressed: () {}, child: const Text('elevated')),
                   TextButton.icon(
@@ -91,11 +95,43 @@ class LessonOne extends StatelessWidget {
                       onPressed: () {},
                       icon:
                           const Icon(Icons.night_shelter, color: Colors.white),
-                      label: const Text('Icon'))
+                      label: const Text('Icon')),
+                  FloatingActionButton.extended(
+                    label: const Text(
+                        'add'), // you can remove extended and remove label and replace icon to child
+                    onPressed: () {},
+                    icon: const Icon(Icons.add),
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.black,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      side: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                          style: BorderStyle.solid),
+                    ),
+                    splashColor: Colors.yellow,
+                  ),
                 ],
               )
             ]),
           ),
+          floatingActionButton: FloatingActionButton.extended(
+            label: const Text(
+                'add'), // you can remove extended and remove label and replace icon to child
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.black,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+              side: BorderSide(
+                  color: Colors.black, width: 2, style: BorderStyle.solid),
+            ),
+            splashColor: Colors.yellow,
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
         ));
   }
 }
